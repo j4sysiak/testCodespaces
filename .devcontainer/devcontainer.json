@@ -1,9 +1,5 @@
 {
-  "name": "Spring Boot Docker",
-  "image": "mcr.microsoft.com/devcontainers/java:17",
-  "features": {
-    "docker-in-docker": {}
-  },
-  "forwardPorts": [8080],
-  "postCreateCommand": "chmod +x mvnw && ./mvnw clean install"
+  "name": "Java 17 + Maven",
+  "image": "mcr.microsoft.com/devcontainers/java:17-bullseye",
+  "forwardPorts": [8080]
 }
