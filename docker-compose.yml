@@ -1,11 +1,29 @@
-version: "3.8"
-
 services:
+  db:
+    image: postgres:14
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
   app:
-    platform: linux/arm64
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: demo-spring-boot
     ports:
       - "8080:8080"
-    container_name: demo-spring-boot
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/testdb
+      SPRING_DATASOURCE_USERNAME: testuser
+      SPRING_DATASOURCE_PASSWORD: testpass
+    depends_on:
+      - db
+
+volumes:
+  db_data:
