@@ -4,7 +4,7 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 COPY target/TestGitHubCodespaces-0.0.1-SNAPSHOT.jar app.jar
-
+dupa
 
 EXPOSE 8080
 
