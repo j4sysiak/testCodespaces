@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 services:
   db:
     image: postgres:14
@@ -27,3 +28,16 @@ services:
 
 volumes:
   db_data:
+=======
+version: "3.8"
+
+services:
+  app:
+    platform: linux/arm64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: demo-spring-boot
+>>>>>>> 4f85432f3fde2ce7414df42fa9b859872cfc290d
